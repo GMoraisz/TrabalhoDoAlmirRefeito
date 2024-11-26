@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container mt-5">
+    <div class="text-center">
+        <h1 class="display-4 mb-4">Bem-vindo!</h1>
+
+    </div>
+
+    @if (ViewContext.HttpContext.Session.GetString("UserId") != null)
+    {
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body text-center">
+                        <i class="fas fa-user-graduate fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Alunos</h5>
+                        <p class="card-text">Gerencie informações dos alunos.</p>
+                        <a asp-controller="Aluno" asp-action="Index" class="btn btn-primary">Acessar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body text-center">
+                        <i class="fas fa-book fa-3x text-success mb-3"></i>
+                        <h5 class="card-title">Cursos</h5>
+                        <p class="card-text">Gerencie informações dos cursos.</p>
+                        <a asp-controller="Curso" asp-action="Index" class="btn btn-success">Acessar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body text-center">
+                        <i class="fas fa-hand-holding-usd fa-3x text-warning mb-3"></i>
+                        <h5 class="card-title">Doadores</h5>
+                        <p class="card-text">Gerencie informações dos doadores.</p>
+                        <a asp-controller="Doador" asp-action="Index" class="btn btn-warning">Acessar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body text-center">
+                        <i class="fas fa-user-tie fa-3x text-danger mb-3"></i>
+                        <h5 class="card-title">Responsáveis</h5>
+                        <p class="card-text">Gerencie informações dos responsáveis.</p>
+                        <a asp-controller="Responsavel" asp-action="Index" class="btn btn-danger">Acessar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body text-center">
+                        <i class="fas fa-exchange-alt fa-3x text-info mb-3"></i>
+                        <h5 class="card-title">Movimentações</h5>
+                        <p class="card-text">Acompanhe e gerencie movimentações.</p>
+                        <a asp-controller="Movimentacao" asp-action="Index" class="btn btn-info">Acessar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body text-center">
+                        <i class="fas fa-chart-bar fa-3x text-secondary mb-3"></i>
+                        <h5 class="card-title">Relatórios</h5>
+                        <p class="card-text">Gere relatórios detalhados.</p>
+                        <a asp-controller="Relatorio" asp-action="RelatorioVisitas" class="btn btn-secondary">Acessar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning text-center mt-5" role="alert">
+            Você precisa estar logado para acessar os recursos do sistema.
+        </div>
+        <div class="text-center mt-3">
+            <a asp-controller="User" asp-action="Login" class="btn btn-primary btn-lg">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </a>
+        </div>
+    }
+</div>

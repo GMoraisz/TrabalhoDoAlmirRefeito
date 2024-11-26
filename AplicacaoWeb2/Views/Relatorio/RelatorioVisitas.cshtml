@@ -1,0 +1,29 @@
+﻿@model IEnumerable<dynamic>
+
+@{
+    ViewData["Title"] = "Relatório de Visitas por Agendamento";
+}
+
+<h1>Relatório de Visitas por Agendamento</h1>
+
+<a asp-action="GerarDadosAleatorios" class="btn btn-primary mb-3">Gerar Dados Aleatórios</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Agendamento ID</th>
+            <th>Descrição</th>
+            <th>Total de Visitas</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.AgendamentoId</td>
+                <td>@item.AgendamentoDescricao</td>
+                <td>@item.TotalVisitas</td>
+            </tr>
+        }
+    </tbody>
+</table>

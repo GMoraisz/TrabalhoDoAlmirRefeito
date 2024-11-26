@@ -1,0 +1,42 @@
+﻿@model AplicacaoWeb2.Models.Movimentacao
+
+<h1>Excluir Movimentação</h1>
+
+<h3>Você tem certeza que deseja excluir esta movimentação?</h3>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <td>@Model.Id</td>
+    </tr>
+    <tr>
+        <th>Tipo</th>
+        <td>@Model.Tipo</td>
+    </tr>
+    <tr>
+        <th>Origem</th>
+        <td>@Model.Origem</td>
+    </tr>
+    <tr>
+        <th>Destino</th>
+        <td>@Model.Destino</td>
+    </tr>
+    <tr>
+        <th>Data</th>
+        <td>@Model.DataMovimentacao.ToString("dd/MM/yyyy")</td>
+    </tr>
+    <tr>
+        <th>Valor</th>
+        <td>@Model.Valor.ToString("C")</td>
+    </tr>
+    <tr>
+        <th>Descrição</th>
+        <td>@Model.Descricao</td>
+    </tr>
+</table>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>
